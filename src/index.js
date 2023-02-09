@@ -1,9 +1,7 @@
-const express = require("express");
+const express = require('express');
+const routes = require('./routes');
 
-app = express();
+const app = express();
+app.use(routes);
 
-app.get('/', (request, response) => {
-    response.send('Hello');
-});
-
-app.listen(3000, () => console.log("server started"))
+app.listen(3000);
