@@ -2,26 +2,81 @@ const ContactRepository = require('../repositories/ContactsRepsitory');
 
 class ContactController {
     async index(request, response) {
-        // Listar
         const contacts = await ContactRepository.findAll();
 
         response.json(contacts);
     }
 
-    show() {
-        // Listar
+    async show(request, response) {
+        const { id } = request.params;
+        const contact = await ContactRepository.findById(id);
+
+        if (!contact) {
+            return response.status(404).json({ error: 'User not found' });
+        }
+
+        response.json(contact);
     }
 
-    store() {
-        // Listar
+    async store(request, response) {
+        const {
+            name, email, phone, category_id,
+        } = request.body;
+
+        if (!name) {
+            return response.status(400).json({ error: 'Name is required' });
+        }
+
+        const contactsExists = await ContactRepository.findByEmail(email);
+        if (contactsExists) {
+            return response.status(404).json({ error: 'This email is already in use' });
+        }
+
+        const contact = await ContactRepository.create({
+            name, email, phone, category_id,
+        });
+
+        response.json(contact)
     }
 
-    update() {
-        // Listar
+    async update(request, response) {
+        const { id } = request.params;
+
+        const {
+            name, email, phone, category_id
+        } = request.body;
+
+        const contactsExists = await ContactRepository.findById(id)
+        if (!contactsExists) {
+            return response.status(404).json({ error: 'User not found' });
+        }
+
+        if (!name) {
+            return response.status(400).json({ error: 'Name is required' });
+        }
+
+        const contactsByEmail = await ContactRepository.findByEmail(email);
+        if (contactsByEmail && contactsByEmail.id !== id) {
+            return response.status(404).json({ error: 'This email is already in use' });
+        }
+
+        const contact = await ContactRepository.update(id, {
+            name, email, phone, category_id
+        })
+
+        response.json(contact)
     }
 
-    delete() {
-        // Listar
+    async delete(request, response) {
+        const { id } = request.params;
+        const contact = await ContactRepository.findById(id);
+
+        if (!contact) {
+            return response.status(404).json({ error: 'User not found' });
+        }
+
+        await ContactRepository.delete(id);
+        response.sendStatus(204);
     }
 }
 
