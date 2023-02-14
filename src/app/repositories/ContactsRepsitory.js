@@ -1,16 +1,4 @@
-const { v4 } = require('uuid');
-
 const db = require("../../database");
-
-let contacts = [
-    {
-        id: v4(),
-        name: 'Italo Maia',
-        email: 'italomaia@gmail.com',
-        phone: '123456789',
-        category_id: v4(),
-    },
-];
 
 // MUST be only access data font
 class ContactRepository {
@@ -33,13 +21,6 @@ class ContactRepository {
         return rows;;
     }
 
-    delete(id) {
-        return new Promise((resolve) => {
-            contacts.filter((contact) => contact.id !== id);
-            resolve();
-        });
-    }
-
     async create({ name, email, phone, category_id }) {
         const row = await db.query(`
             INSERT INTO contacts(name, email, phone, category_id)
@@ -50,22 +31,21 @@ class ContactRepository {
         return row;
     }
 
-    update(id, { name, email, phone, category_id }) {
-        return new Promise((resolve) => {
-            const updatedContact = {
-                id,
-                name,
-                email,
-                phone,
-                category_id
-            };
+    async delete(id) {
+        const deleteOp = await db.query('DELETE FROM contacts WHERE id = $1', [id]);
 
-            contacts = contacts.map((contact) => (
-                contact.id === id ? updatedContact : contact
-            ));
+        return deleteOp;
+    }
 
-            resolve(updatedContact);
-        });
+    async update(id, { name, email, phone, category_id }) {
+        const [row] = await db.query(`
+            UPDATE contacts
+            SET name = $1, email = $2, phone = $3, category_id = $4
+            WHERE id = $5
+            RETURNING *
+        `, [name, email, phone, category_id, id]);
+
+        return row;
     }
 
 }
