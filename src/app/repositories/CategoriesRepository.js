@@ -7,8 +7,6 @@ class CategoriesRepository {
     }
 
     async create({ name }) {
-        console.log(name)
-
         const [row] = await db.query(`
             INSERT INTO categories(name)
             VALUES($1)
