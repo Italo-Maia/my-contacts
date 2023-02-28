@@ -4,6 +4,6 @@ export default function Home() {
     <>
       <h1>My Contacts</h1>
     </>
-  )
+  );
 
 }

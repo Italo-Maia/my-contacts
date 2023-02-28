@@ -2,9 +2,13 @@ import Head from 'next/head'
 import { Sora } from 'next/font/google'
 import { ThemeProvider } from 'styled-components';
 
+const sora = Sora({ subsets: ['latin'] })
+
+import Header from '../components/Header';
+import { Container } from '../components/App/styles';
 import GlobalStyles from '../assets/styles/global';
 import defaultTheme from '../assets/styles/themes/default';
-const sora = Sora({ subsets: ['latin'] })
+
 
 export default function App({ Component, pageProps }) {
   return (
@@ -18,7 +22,12 @@ export default function App({ Component, pageProps }) {
 
           <link rel="icon" href="/favicon.ico" />
         </Head>
+        <Container>
+          <Header />
         <Component {...pageProps} />
+
+        </Container>
+
       </ThemeProvider>
     </main>
   );
