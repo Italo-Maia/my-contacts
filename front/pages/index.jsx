@@ -1,13 +1,7 @@
+import ContactsList from '../components/ContactsList';
 
 export default function Home() {
   return (
-    <>
-      <h1>My Contacts</h1>
-    </>
+    <ContactsList />
   );
-
 }
-
-
-
-
