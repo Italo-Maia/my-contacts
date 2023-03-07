@@ -34,7 +34,6 @@ export default function App({ Component, pageProps }) {
         <Container>
           <Header />
           <Component {...pageProps} />
-
         </Container>
 
       </ThemeProvider>
