@@ -1,0 +1,13 @@
+{ 
+  "presets": ["next/babel"], 
+  "swcMinify" : "true",
+  "plugins": [
+      [
+      "styled-components", 
+        { 
+          "ssr": true,
+          "displayName": true  
+        }
+      ]
+   ]
+}

@@ -1,17 +1,13 @@
 import Head from 'next/head';
-import { Sora } from 'next/font/google';
 import { ThemeProvider } from 'styled-components';
 
-import Header from '../components/Header';
 import { Container } from '../components/App/styles';
 import GlobalStyles from '../assets/styles/global';
 import defaultTheme from '../assets/styles/themes/default';
 
-const sora = Sora({ subsets: ['latin'] });
-
 export default function App({ Component, pageProps }) {
   return (
-    <main className={sora.className}>
+    <main>
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
         <Head>
@@ -32,7 +28,6 @@ export default function App({ Component, pageProps }) {
         </Head>
 
         <Container>
-          <Header />
           <Component {...pageProps} />
         </Container>
 
