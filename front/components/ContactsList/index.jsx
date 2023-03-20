@@ -8,10 +8,12 @@ import arrow from '../../assets/images/icons/arrow.svg';
 import edit from '../../assets/images/icons/edit.svg';
 import trash from '../../assets/images/icons/trash.svg';
 import Modal from '../Modal';
+import Loader from '../Loader';
 
 export default function ContactsList() {
   return (
     <Container>
+      <Loader />
       {/* <Modal danger title="MODAL" text="TEXT" actionTitle="DELETAR" /> */}
 
       <Header>
