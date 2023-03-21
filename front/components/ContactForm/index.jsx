@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import PropTypes from 'prop-types';
+import useErros from 'hooks/useErros';
 import FormGroup from '../FormGroup';
 import { ButtonContainer, Form } from './styles';
 
@@ -15,46 +16,27 @@ export default function ContactForm({ buttonLabel }) {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [category, setCategory] = useState('');
-  const [errors, setErrors] = useState([]);
 
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-
-    if (e.target.value && !isEmailValid(e.target.value)) {
-      const errorAlreadyExists = errors.find((error) => error.field === 'email');
-
-      if (errorAlreadyExists) {
-        return;
-      }
-
-      setErrors((prevState) => [
-        ...prevState,
-        { field: 'email', message: 'E-mail inválido' },
-      ]);
-    } else {
-      setErrors((prevState) => prevState.filter(
-        (error) => error.field !== 'email',
-      ));
-    }
-  }
+  const { setError, removeError, getErrorMessageByFieldName } = useErros();
 
   function handleNameChange(e) {
     setName(e.target.value);
 
     if (e.target.value.length < 3) {
-      setErrors((prevState) => [
-        ...prevState,
-        { field: 'name', message: 'Nome deve conter no mínimo 3 letras' },
-      ]);
+      setError({ field: 'name', message: 'Nome obrigatório, deve conter no mínimo 3 letras' });
     } else {
-      setErrors((prevState) => prevState.filter(
-        (error) => error.field !== 'name',
-      ));
+      removeError('name');
     }
   }
 
-  function getErrorMessageByFieldName(fieldName) {
-    return errors.find((error) => error.field === fieldName)?.message;
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+
+    if (e.target.value && !isEmailValid(e.target.value)) {
+      setError({ field: 'email', message: 'E-mail inválido' });
+    } else {
+      removeError('email');
+    }
   }
 
   function handleSubmit(e) {
