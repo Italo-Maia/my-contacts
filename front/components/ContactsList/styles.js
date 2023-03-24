@@ -26,30 +26,27 @@ export const Header = styled.header`
 
     &:hover {
       background: ${({ theme }) => theme.colors.primary.main};
-      color: "#FFF";
+      color: #FFF;
     }
   }
 `;
 
-export const ListContainer = styled.div`
+export const ListHeader = styled.header`
   margin-top: 24px;
+  margin-bottom: 8px;
 
-  header{
-    margin-bottom: 8px;
+  button {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+  }
 
-    button {
-      background: transparent;
-      border: none;
-      display: flex;
-      align-items: center;
-    }
-
-    span {
-      margin-right: 8px;
-      font-size: 17px;
-      font-weight: bold;
-      color: ${({ theme }) => theme.colors.primary.main};
-    }
+  span {
+    margin-right: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.primary.main};
   }
 `;
 
@@ -64,6 +61,7 @@ export const Card = styled.div`
   justify-content: space-between;
 
   .info {
+    display: block;
     .contact-name {
       display: flex;
       align-items: center;
@@ -77,12 +75,12 @@ export const Card = styled.div`
         border-radius: 8px;
         margin-left: 4px;
       }
-
-      span {
+    }
+    
+    span {
       display: block;
       font-size: 14px;
       color: ${({ theme }) => theme.colors.gray[200]};
-    }
     }
   }
   .actions {
