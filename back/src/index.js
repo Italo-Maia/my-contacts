@@ -1,16 +1,15 @@
 const { response } = require('express');
 const express = require('express');
+
+const cors = require('../middleware/cors')
+const errorHandler = require('../middleware/errorHandler')
 const routes = require('./routes');
 
 const app = express();
-// app.use((request, response) => {
 
-// });
 app.use(express.json());
+app.use(cors);
 app.use(routes);
-app.use((error, requeste, response, next) => {
-    response.sendStatus(500);
-    console.log(error)
-})
+app.use(errorHandler)
 
-app.listen(3000);
+app.listen(3001);

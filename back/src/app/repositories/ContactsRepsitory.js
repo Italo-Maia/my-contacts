@@ -2,8 +2,8 @@ const db = require("../../database");
 
 // MUST be only access data font
 class ContactRepository {
-    async findAll(orderBy) {
-        const direction = orderBy?.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
+    async findAll(orderBy = 'ASC') {
+    const direction = orderBy.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
         const rows = await db.query(
             `SELECT contacts.*, categories.name AS category_name
             FROM contacts
