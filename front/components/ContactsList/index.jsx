@@ -49,7 +49,11 @@ export default function ContactsList() {
           onClick={handleToogleOrderBy}
         >
           <span>Nome</span>
-          <Image src={arrow} alt="Arrow" />
+          <Image
+            className={orderBy === 'asc' ? 'arrowOver' : 'arrowDown'}
+            src={arrow}
+            alt="Arrow"
+          />
         </button>
       </ListHeader>
 

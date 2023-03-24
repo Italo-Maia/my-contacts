@@ -40,13 +40,23 @@ export const ListHeader = styled.header`
     border: none;
     display: flex;
     align-items: center;
-  }
 
-  span {
-    margin-right: 8px;
-    font-size: 17px;
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.primary.main};
+    span {
+      margin-right: 8px;
+      font-size: 17px;
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.primary.main};
+    }
+
+    .arrowOver {
+      transform: rotate(180deg);
+      transition: transform 0.2s ease-in;
+    }
+
+    .arrowDown {
+      transform: rotate(0deg);
+      transition: transform 0.2s ease-in;
+    }
   }
 `;
 
