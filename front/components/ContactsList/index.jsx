@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import {
-  Container, Header, ListContainer, Card,
+  Container, Header, Card, ListHeader,
 } from './styles';
 
 import arrow from '../../assets/images/icons/arrow.svg';
@@ -11,36 +12,62 @@ import trash from '../../assets/images/icons/trash.svg';
 // import Loader from '../Loader';
 
 export default function ContactsList() {
+  const [contacts, setContacts] = useState([]);
+  const [orderBy, setOrderBy] = useState('asc');
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/contacts?orderBy=${orderBy}`)
+      .then(async (response) => {
+        const json = await response.json();
+
+        setContacts(json);
+      });
+  }, [orderBy]);
+
+  function handleToogleOrderBy() {
+    setOrderBy(
+      (prevState) => (prevState === 'asc' ? 'desc' : 'asc'),
+    );
+  }
+
   return (
     <Container>
       {/* <Loader /> */}
       {/* <Modal danger title="MODAL" text="TEXT" actionTitle="DELETAR" /> */}
 
       <Header>
-        <strong>3 contatos</strong>
+        <strong>
+          {contacts.length}
+          {contacts.length === 1 ? ' contato' : ' contatos'}
+        </strong>
         <Link href="/new">Novo Contato</Link>
       </Header>
 
-      <ListContainer>
-        <header>
-          <button type="button">
-            <span>Nome</span>
-            <Image src={arrow} alt="Arrow" />
-          </button>
-        </header>
+      <ListHeader>
+        <button
+          type="button"
+          onClick={handleToogleOrderBy}
+        >
+          <span>Nome</span>
+          <Image src={arrow} alt="Arrow" />
+        </button>
+      </ListHeader>
 
-        <Card>
+      {contacts.map((contact) => (
+        <Card key={contact.id}>
           <div className="info">
             <div className="contact-name">
-              <strong>Italo Maia</strong>
-              <small>instagram</small>
+              <strong>{contact.name}</strong>
+              {contact.category_name && (
+              <small>{contact.category_name}</small>
+              )}
             </div>
-            <span>italomaiatech@gmail.com</span>
-            <span>(+55) 31 992822389</span>
+            <span>{contact.email}</span>
+            <span>{contact.phone}</span>
           </div>
 
           <div className="actions">
-            <Link href="/edit/123">
+            <Link href={`edit/${contact.id}}`}>
               <Image src={edit} alt="Edit" />
             </Link>
             <button type="button">
@@ -48,7 +75,7 @@ export default function ContactsList() {
             </button>
           </div>
         </Card>
-      </ListContainer>
+      ))}
     </Container>
   );
 }
