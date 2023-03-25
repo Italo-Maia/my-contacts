@@ -11,7 +11,7 @@ Este projeto está em construção.. 🚧👷‍♂️
 <br>
 
 *Simples preview do Front-End deste projeto clicando baixo:*
-### Link: [MyContacs](https://mycontacts-gold.vercel.app/new) 🖱
+### Link: [MyContacs](https://mycontacts-gold.vercel.app) 🖱
 
 <br>
 
