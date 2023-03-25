@@ -5,7 +5,7 @@ export const Container = styled.header`
   a {
     text-decoration: none;
      span {
-      color: ${({ theme }) => theme.colors.primary.main};
+      color: #EEEEEE;
       font-weight: bold;
      }
 
@@ -17,5 +17,6 @@ export const Container = styled.header`
 
   h1 {
     font-size: 24px;
+    color: ${(props) => props.theme.colors.primary.main};
   }
 `;

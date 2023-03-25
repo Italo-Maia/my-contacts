@@ -5,13 +5,34 @@ export const Container = styled.div`
   position: relative;
 `;
 
+export const InputSearchContainer = styled.div`
+  margin-top: 48px;
+  width: 100%;
+
+  input {
+    border-radius: 25px;
+    border: none;
+    height: 50px;
+    background-color: #FFFFFF;
+    box-shadow: 8px 4px 10px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    outline: 0;
+    padding: 0 16px;
+
+    &::placeholder {
+      color: #777777;
+    }
+  }
+`;
+
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 24px;
 
   strong {
-    color: #222;
+    color: ${({ theme }) => theme.colors.primary.main};
     font-size: 24px;
   }
 
@@ -45,7 +66,7 @@ export const ListHeader = styled.header`
       margin-right: 8px;
       font-size: 17px;
       font-weight: bold;
-      color: ${({ theme }) => theme.colors.primary.main};
+      color: #eee;
     }
 
     .arrowOver {
@@ -90,7 +111,7 @@ export const Card = styled.div`
     span {
       display: block;
       font-size: 14px;
-      color: ${({ theme }) => theme.colors.gray[200]};
+      color: ${({ theme }) => theme.colors.gray[100]};
     }
   }
   .actions {
