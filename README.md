@@ -4,7 +4,7 @@
 ## O BackEnd ainda está sem deploy. Mas caso voce deseje ver a aplicação completa,basta seguir o passo a passo:  -->
 
 ## 💻 Projeto
-Projeto que permite que você crie contatos, edite, delete e ordene seus contatos.
+Projeto que permite você criar contatos, edite, delete e ordene seus contatos.
 <br>
 
 Este projeto está em construção.. 🚧👷‍♂️
