@@ -9,7 +9,7 @@ Projeto que permite você criar contatos, edite, delete e ordene seus contatos.
 <br>
 
 <br>
-Este projeto está em construção.. 🚧👷‍♂️
+Este projeto está em construção. 🚧👷‍♂️
 
 <br>
 
