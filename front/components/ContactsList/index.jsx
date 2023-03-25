@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState, useMemo } from 'react';
 import ContactsService from 'services/ContactsService';
+import { CONTACT_MOCKED } from 'mocks/contact';
 import {
   Container, Header, Card, ListHeader, InputSearchContainer,
 } from './styles';
@@ -13,7 +14,7 @@ import trash from '../../assets/images/icons/trash.svg';
 import Loader from '../Loader';
 
 export default function ContactsList() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState([CONTACT_MOCKED]);
   const [orderBy, setOrderBy] = useState('asc');
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState(true);
