@@ -24,7 +24,10 @@
       "import/no-unresolved" : "off",
       "import/extensions": "off",
       "import/no-extraneous-dependencies" : "off",
+      "consistent-return": "off",
       "react/no-typos": "off",
-      "react/jsx-no-bind": "off"
+      "react/jsx-no-bind": "off",
+      "no-promise-executor-return": "off",
+      "class-methods-use-this": "off"
     }
 }

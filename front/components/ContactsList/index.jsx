@@ -1,33 +1,43 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState, useMemo } from 'react';
+import ContactsService from 'services/ContactsService';
 import {
-  Container, Header, Card, ListHeader,
+  Container, Header, Card, ListHeader, InputSearchContainer,
 } from './styles';
 
 import arrow from '../../assets/images/icons/arrow.svg';
 import edit from '../../assets/images/icons/edit.svg';
 import trash from '../../assets/images/icons/trash.svg';
-import { InputSearchContainer } from '../Header/styles';
 // import Modal from '../Modal';
-// import Loader from '../Loader';
+import Loader from '../Loader';
 
 export default function ContactsList() {
   const [contacts, setContacts] = useState([]);
   const [orderBy, setOrderBy] = useState('asc');
   const [searchTerm, setSearchTerm] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   const filteredContacts = useMemo(() => contacts.filter((contact) => (
     contact.name.toLowerCase().includes(searchTerm.toLowerCase())
   )), [contacts, searchTerm]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/contacts?orderBy=${orderBy}`)
-      .then(async (response) => {
-        const json = await response.json();
+    async function loadContacts() {
+      try {
+        setIsLoading(true);
 
-        setContacts(json);
-      });
+        const contactsList = await ContactsService.listContacts(orderBy);
+
+        setContacts(contactsList);
+      } catch (error) {
+        return error;
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadContacts();
   }, [orderBy]);
 
   function handleToogleOrderBy() {
@@ -42,7 +52,7 @@ export default function ContactsList() {
 
   return (
     <Container>
-      {/* <Loader /> */}
+      <Loader isLoading={isLoading} />
       {/* <Modal danger title="MODAL" text="TEXT" actionTitle="DELETAR" /> */}
 
       <InputSearchContainer>
