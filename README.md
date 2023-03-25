@@ -7,7 +7,9 @@
 
 Este projeto está em construção.. 🚧👷‍♂️
 
-Projeto que permite você realizar o registro de um contato, edite, delete e ordene seus contatos. Mas você pode conferir um pequeno preview do FrontEnd deste projeto clicando aqui:[MyContacs](https://mycontacts-gold.vercel.app/new) 🖱.
+Projeto que permite você realizar o registro de um contato, edite, delete e ordene seus contatos. Mas você pode conferir um pequeno preview do FrontEnd deste projeto clicando baixo:
+
+[MyContacs](https://mycontacts-gold.vercel.app/new) 🖱.
 
 <br>
 
