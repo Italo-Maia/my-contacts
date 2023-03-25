@@ -4,12 +4,16 @@
 ## O BackEnd ainda está sem deploy. Mas caso voce deseje ver a aplicação completa,basta seguir o passo a passo:  -->
 
 ## 💻 Projeto
+Projeto que permite você crie contatos, edite, delete e ordene seus contatos.
+<br>
 
 Este projeto está em construção.. 🚧👷‍♂️
+<br>
 
-Projeto que permite você realizar o registro de um contato, edite, delete e ordene seus contatos. Mas você pode conferir um pequeno preview do FrontEnd deste projeto clicando baixo:
+*Simples preview do Front-End deste projeto clicando baixo:*
+<br>
 
-[MyContacs](https://mycontacts-gold.vercel.app/new) 🖱.
+### Link: [MyContacs](https://mycontacts-gold.vercel.app/new) 🖱
 
 <br>
 
