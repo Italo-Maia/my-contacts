@@ -1,4 +1,5 @@
-# Seja Bem Vindo ao MyContacts
+# Seja Bem Vindo ao MyContacts !
+<br>
 
 <!-- ### O Projeto ainda está sendo construído, 
 ## O BackEnd ainda está sem deploy. Mas caso voce deseje ver a aplicação completa,basta seguir o passo a passo:  -->
@@ -7,8 +8,17 @@
 Projeto que permite você criar contatos, edite, delete e ordene seus contatos.
 <br>
 
-Este projeto está em construção.. 🚧👷‍♂️
 <br>
+Este projeto está em construção.. 🚧👷‍♂️
+
+<br>
+
+# Preview 🚀
+
+   <p align="center">
+      <img width="80%" height="80%" src="./front/assets/images/gif/gif.gif"  alt="Gif Resumo do site"/>
+   </p>
+
 
 *Simples preview do Front-End deste projeto clicando baixo:*
 ### Link: [MyContacs](https://mycontacts-gold.vercel.app) 🖱
