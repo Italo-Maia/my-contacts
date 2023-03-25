@@ -5,7 +5,7 @@ export const Container = styled.header`
   a {
     text-decoration: none;
      span {
-      color: #EEEEEE;
+      color: #222;
       font-weight: bold;
      }
 
