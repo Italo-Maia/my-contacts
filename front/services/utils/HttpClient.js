@@ -8,7 +8,7 @@ class HttpClient {
   async get(path) {
     const response = await fetch(`${this.baseURL}${path}`);
 
-    await delay(500);
+    await delay(2000);
 
     return response.json();
   }

@@ -32,7 +32,7 @@ export const Header = styled.header`
   margin-top: 24px;
 
   strong {
-    color: ${({ theme }) => theme.colors.primary.main};
+    color: #222;
     font-size: 24px;
   }
 
@@ -66,7 +66,7 @@ export const ListHeader = styled.header`
       margin-right: 8px;
       font-size: 17px;
       font-weight: bold;
-      color: #eee;
+      color: ${({ theme }) => theme.colors.primary.main};
     }
 
     .arrowOver {
@@ -111,7 +111,7 @@ export const Card = styled.div`
     span {
       display: block;
       font-size: 14px;
-      color: ${({ theme }) => theme.colors.gray[100]};
+      color: #777;
     }
   }
   .actions {

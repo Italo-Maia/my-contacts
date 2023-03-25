@@ -17,6 +17,5 @@ export const Container = styled.header`
 
   h1 {
     font-size: 24px;
-    color: ${(props) => props.theme.colors.primary.main};
   }
 `;
